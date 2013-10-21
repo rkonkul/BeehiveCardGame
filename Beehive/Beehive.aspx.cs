@@ -9,6 +9,7 @@ using System.IO;
 
 namespace Beehive
 {
+<<<<<<< HEAD
     public class Score
     {
         public string name;
@@ -44,11 +45,23 @@ namespace Beehive
                 a.Text = "" + (i + 1) + ". " + s.name + ": " + s.time;
                 scoresList.Items.Add(a);
             }
+=======
+    public partial class Beehive : System.Web.UI.Page
+    {
+        BeehiveGame game;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             updateView();
         }
 
         protected void updateView()
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             if (Session["gamedata"] == null)
             {
                 game = new BeehiveGame();
@@ -58,6 +71,7 @@ namespace Beehive
             {
                 game = (BeehiveGame)Session["gamedata"];
             }
+<<<<<<< HEAD
             if (game.checkWinState())
             {
                 nameInput.Visible = false;
@@ -82,16 +96,26 @@ namespace Beehive
                     a.Visible = false;
                 }
             }
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             for (int i = 1; i <= 6; i++)
             {
                 ImageButton img = (ImageButton)this.FindControl("flower" + i);
                 if (game.getFlowerStack(i).Count() == 0)
                 {
+<<<<<<< HEAD
                     img.ImageUrl = "~/resources/cards_png/blank.png";
                 }
                 else
                 {
                     img.ImageUrl = "~/resources/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
+=======
+                    img.ImageUrl = "~/cards_png/blank.png";
+                }
+                else
+                {
+                    img.ImageUrl = "~/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                 }
                 if (Session["selected"] == null)
                 {
@@ -100,6 +124,7 @@ namespace Beehive
             }
             if (game.getBeehive().Count() > 0)
             {
+<<<<<<< HEAD
                 beehiveStack.ImageUrl = "~/resources/cards_png/" + game.getBeehive().Peek().getImageFile();
             }
             else
@@ -109,6 +134,17 @@ namespace Beehive
             if (game.getWorkingPile().Count() > 0)
             {
                 workingStack.ImageUrl = "~/resources/cards_png/" + game.getWorkingPile().Peek().getImageFile();
+=======
+                beehiveStack.ImageUrl = "~/cards_png/" + game.getBeehive().Peek().getImageFile();
+            }
+            else
+            {
+                beehiveStack.ImageUrl = "~/cards_png/blank.png";
+            }
+            if (game.getWorkingPile().Count() > 0)
+            {
+                workingStack.ImageUrl = "~/cards_png/" + game.getWorkingPile().Peek().getImageFile();
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             }
             else
             {
@@ -123,6 +159,7 @@ namespace Beehive
             {
                 hide2.Visible = false;
             }
+<<<<<<< HEAD
             if (game.getDeck().Count() < 1)
             {
                 deck.ImageUrl = "~/resources/cards_png/blank.png";
@@ -134,6 +171,9 @@ namespace Beehive
 
             timeLabel.Text = "" + (DateTime.Now.ToFileTime() - game.startTime) / 10000000.0;
            // System.Diagnostics.Debug.WriteLine(game.printGameState());
+=======
+            System.Diagnostics.Debug.WriteLine(game.printGameState());
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
         }
         protected bool moveCardToFlower(ImageButton highlighted, int flower)
         {
@@ -409,6 +449,7 @@ namespace Beehive
             Session["gamedata"] = game;
             Response.Redirect(Request.RawUrl);
         }
+<<<<<<< HEAD
 
         protected void nameSubmit_Click(object sender, EventArgs e)
         {
@@ -432,5 +473,7 @@ namespace Beehive
             }
         }
 
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }
 }

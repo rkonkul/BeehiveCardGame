@@ -17,8 +17,11 @@ public class BeehiveGame
     public SerializableStack<Card> flowerStack5;
     public SerializableStack<Card> flowerStack6;
     public bool win = false;
+<<<<<<< HEAD
     public long startTime;
     public double totalTime;
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 
     public List<Card> getDeck()
     {
@@ -99,13 +102,18 @@ public class BeehiveGame
         return false;
     }
 
+<<<<<<< HEAD
     public bool checkWinState()
+=======
+    public void checkWinState()
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     {
         for (int i = 1; i <= 6; i++)
         {
             SerializableStack<Card> s = getFlowerStack(i);
             if (s.Count() != 0)
             {
+<<<<<<< HEAD
                 return false;
             }
         }
@@ -117,6 +125,12 @@ public class BeehiveGame
             return win;
         }
         return false;
+=======
+                return;
+            }
+        }
+        win = true;
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }
 
     public bool playerWon()
@@ -188,8 +202,11 @@ public class BeehiveGame
         deck.RemoveAt(0);
         flowerStack6.Push(deck.ElementAt(0));
         deck.RemoveAt(0);
+<<<<<<< HEAD
 
         startTime = DateTime.Now.ToFileTime();
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }
 
     private char map(int i)
