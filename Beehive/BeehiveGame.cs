@@ -17,6 +17,8 @@ public class BeehiveGame
     public SerializableStack<Card> flowerStack5;
     public SerializableStack<Card> flowerStack6;
     public bool win = false;
+    public long startTime;
+    public double totalTime;
 
     public List<Card> getDeck()
     {
@@ -97,17 +99,24 @@ public class BeehiveGame
         return false;
     }
 
-    public void checkWinState()
+    public bool checkWinState()
     {
         for (int i = 1; i <= 6; i++)
         {
             SerializableStack<Card> s = getFlowerStack(i);
             if (s.Count() != 0)
             {
-                return;
+                return false;
             }
         }
-        win = true;
+        if (deck.Count() < 1 && beehiveStack.Count() < 1 && workingPile.Count() < 1)
+        {
+
+            win = true;
+            totalTime = (DateTime.Now.ToFileTime() - startTime) / 10000000.0;
+            return win;
+        }
+        return false;
     }
 
     public bool playerWon()
@@ -179,6 +188,8 @@ public class BeehiveGame
         deck.RemoveAt(0);
         flowerStack6.Push(deck.ElementAt(0));
         deck.RemoveAt(0);
+
+        startTime = DateTime.Now.ToFileTime();
     }
 
     private char map(int i)

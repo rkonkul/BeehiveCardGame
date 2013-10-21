@@ -9,18 +9,46 @@ using System.IO;
 
 namespace Beehive
 {
+    public class Score
+    {
+        public string name;
+        public double time;
+
+        public Score()
+        {
+        }
+
+        public Score(string n, double t)
+        {
+            name = n;
+            time = t;
+        }
+    }
     public partial class Beehive : System.Web.UI.Page
     {
         BeehiveGame game;
+        List<Score> scores = new List<Score>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //read in scores xml file located in project root
+            string scoresXML = System.IO.File.ReadAllText(Server.MapPath("~") + "/scores.xml");
+            scores = (List<Score>)SerializationUtils.DeserializeObject(scoresXML, typeof(List<Score>));
+
+            scoresList.Items.Clear();
+            for (int i = 0; i < scores.Count(); i++)
+            {
+                ListItem a = new ListItem();
+                Score s = scores.ElementAt(i);
+                a.Text = "" + (i + 1) + ". " + s.name + ": " + s.time;
+                scoresList.Items.Add(a);
+            }
             updateView();
         }
 
         protected void updateView()
         {
-
             if (Session["gamedata"] == null)
             {
                 game = new BeehiveGame();
@@ -30,16 +58,40 @@ namespace Beehive
             {
                 game = (BeehiveGame)Session["gamedata"];
             }
+            if (game.checkWinState())
+            {
+                nameInput.Visible = false;
+                nameSubmit.Visible = false;
+                for (int i = 1; i <= 6; i++)
+                {
+                    Image a = (Image)this.FindControl("dancingBee" + i);
+                    a.Visible = true;
+                }
+                if (scores.ElementAt(scores.Count() - 1).time >= game.totalTime)
+                {
+                    System.Diagnostics.Debug.WriteLine("winstate");
+                    nameInput.Visible = true;
+                    nameSubmit.Visible = true;
+                }
+            }
+            else
+            {
+                for (int i = 1; i <= 6; i++)
+                {
+                    Image a = (Image)this.FindControl("dancingBee" + i);
+                    a.Visible = false;
+                }
+            }
             for (int i = 1; i <= 6; i++)
             {
                 ImageButton img = (ImageButton)this.FindControl("flower" + i);
                 if (game.getFlowerStack(i).Count() == 0)
                 {
-                    img.ImageUrl = "~/cards_png/blank.png";
+                    img.ImageUrl = "~/resources/cards_png/blank.png";
                 }
                 else
                 {
-                    img.ImageUrl = "~/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
+                    img.ImageUrl = "~/resources/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
                 }
                 if (Session["selected"] == null)
                 {
@@ -48,15 +100,15 @@ namespace Beehive
             }
             if (game.getBeehive().Count() > 0)
             {
-                beehiveStack.ImageUrl = "~/cards_png/" + game.getBeehive().Peek().getImageFile();
+                beehiveStack.ImageUrl = "~/resources/cards_png/" + game.getBeehive().Peek().getImageFile();
             }
             else
             {
-                beehiveStack.ImageUrl = "~/cards_png/blank.png";
+                beehiveStack.ImageUrl = "~/resources/cards_png/blank.png";
             }
             if (game.getWorkingPile().Count() > 0)
             {
-                workingStack.ImageUrl = "~/cards_png/" + game.getWorkingPile().Peek().getImageFile();
+                workingStack.ImageUrl = "~/resources/cards_png/" + game.getWorkingPile().Peek().getImageFile();
             }
             else
             {
@@ -71,7 +123,17 @@ namespace Beehive
             {
                 hide2.Visible = false;
             }
-            System.Diagnostics.Debug.WriteLine(game.printGameState());
+            if (game.getDeck().Count() < 1)
+            {
+                deck.ImageUrl = "~/resources/cards_png/blank.png";
+            }
+            else
+            {
+                deck.ImageUrl = "~/resources/cards_png/b1fv.png";
+            }
+
+            timeLabel.Text = "" + (DateTime.Now.ToFileTime() - game.startTime) / 10000000.0;
+           // System.Diagnostics.Debug.WriteLine(game.printGameState());
         }
         protected bool moveCardToFlower(ImageButton highlighted, int flower)
         {
@@ -347,5 +409,28 @@ namespace Beehive
             Session["gamedata"] = game;
             Response.Redirect(Request.RawUrl);
         }
+
+        protected void nameSubmit_Click(object sender, EventArgs e)
+        {
+            if (game.playerWon())
+            {
+                scores.Add(new Score(nameInput.Text, game.totalTime));
+                scores = scores.OrderBy(o => o.time).ToList();
+                while (scores.Count() > 10)
+                {
+                    scores.RemoveAt(scores.Count() - 1);
+                }
+                string scoresXML = SerializationUtils.SerializeObject(scores);
+                System.IO.File.WriteAllText(Server.MapPath("~") + "/scores.xml", scoresXML);
+                game = new BeehiveGame();
+                Session["gamedata"] = game;
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Error: User clicked name submit button but didnt win first");
+            }
+        }
+
     }
 }
