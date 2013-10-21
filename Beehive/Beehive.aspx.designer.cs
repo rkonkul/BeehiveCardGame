@@ -23,8 +23,6 @@ namespace Beehive {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-<<<<<<< HEAD
-<<<<<<< HEAD
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -34,10 +32,6 @@ namespace Beehive {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-=======
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
-=======
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -47,8 +41,6 @@ namespace Beehive {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-<<<<<<< HEAD
-<<<<<<< HEAD
         /// dancingBee1 control.
         /// </summary>
         /// <remarks>
@@ -103,10 +95,6 @@ namespace Beehive {
         protected global::System.Web.UI.WebControls.Image dancingBee6;
         
         /// <summary>
-=======
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
-=======
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
         /// flower1 control.
         /// </summary>
         /// <remarks>
@@ -215,8 +203,6 @@ namespace Beehive {
         protected global::System.Web.UI.WebControls.Button reset;
         
         /// <summary>
-<<<<<<< HEAD
-<<<<<<< HEAD
         /// rulesL control.
         /// </summary>
         /// <remarks>
@@ -263,25 +249,11 @@ namespace Beehive {
         
         /// <summary>
         /// nameSubmit control.
-=======
-        /// HyperLink1 control.
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
-=======
-        /// HyperLink1 control.
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button nameSubmit;
-=======
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
-=======
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
->>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }
 }
