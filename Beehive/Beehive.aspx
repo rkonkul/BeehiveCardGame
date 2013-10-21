@@ -6,6 +6,7 @@
     <title></title>
 </head>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <body style="width: 100%; margin: 0; padding: 0;" onload="getUsername()">
 
     <script>
@@ -27,12 +28,17 @@
 <body>
     <form id="form1" runat="server">
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
+<body>
+    <form id="form1" runat="server">
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     <div align="center">
         <asp:Label ID="Label1" runat="server" Text="Beehive Card Game" Font-Names="Impact"
             Font-Size="24pt" ForeColor="#FF9900"></asp:Label>
     </div>
     <p />
     <p />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <asp:Image ID="dancingBee1" runat="server" ImageUrl="~/resources/dancingbee.gif"
         Style="position: absolute; left: -50px; top: -100px; z-index: 1000;" Visible="False" />
@@ -69,6 +75,8 @@
             <div style="position: absolute; left: 368px; top: 58px;">
                 <asp:ImageButton ImageUrl="~/resources/cards_png/b2fv.png" ID="beehiveStack" runat="server"
 =======
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     <div style="width: 500px; border: 1px solid black; overflow: auto;position: relative">
         <div id="flowers" style="margin-right: auto; height: 250px; width: 500px; float: left;position: relative">
             <div>
@@ -89,11 +97,15 @@
             </div>
             <div style="position:absolute;left:368px;top:58px;">
                 <asp:ImageButton ImageUrl="~/cards_png/b2fv.png" ID="beehiveStack" runat="server"
+<<<<<<< HEAD
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                     OnClick="Beehive_Click" AlternateText="Beehive Stack" ToolTip="Beehive Stack" />
             </div>
         </div>
         <div style="float: left; width: 250px;">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <asp:ImageButton ImageUrl="~/resources/cards_png/b1fv.png" ID="deck" runat="server"
                 OnClick="Deck_Click" />
@@ -128,6 +140,8 @@
         style="position: absolute; left: 140px; top: 550px; z-index: 1010;" 
         Visible="False" onclick="nameSubmit_Click"/>
 =======
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             <asp:ImageButton ImageUrl="~/cards_png/b1fv.png" ID="deck" runat="server" OnClick="Deck_Click" />
         </div>
         <div style="float: left;">
@@ -144,6 +158,9 @@
         <asp:Button ID="reset" runat="server" Text="Reset Game" onclick="reset_Click" />
     <asp:HyperLink ID="HyperLink1" runat="server" 
         NavigateUrl="http://cardgameheaven.com/single-player-games/beehive.html">Rules</asp:HyperLink>
+<<<<<<< HEAD
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     </form>
 </body>

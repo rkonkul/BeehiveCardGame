@@ -18,8 +18,11 @@ public class BeehiveGame
     public SerializableStack<Card> flowerStack6;
     public bool win = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public long startTime;
     public double totalTime;
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 
@@ -103,7 +106,11 @@ public class BeehiveGame
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public bool checkWinState()
+=======
+    public void checkWinState()
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
     public void checkWinState()
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
@@ -113,6 +120,7 @@ public class BeehiveGame
             SerializableStack<Card> s = getFlowerStack(i);
             if (s.Count() != 0)
             {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 return false;
             }
@@ -126,10 +134,15 @@ public class BeehiveGame
         }
         return false;
 =======
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                 return;
             }
         }
         win = true;
+<<<<<<< HEAD
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }
 
@@ -203,8 +216,11 @@ public class BeehiveGame
         flowerStack6.Push(deck.ElementAt(0));
         deck.RemoveAt(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         startTime = DateTime.Now.ToFileTime();
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }

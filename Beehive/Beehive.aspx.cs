@@ -10,6 +10,7 @@ using System.IO;
 namespace Beehive
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public class Score
     {
         public string name;
@@ -53,12 +54,24 @@ namespace Beehive
         protected void Page_Load(object sender, EventArgs e)
         {
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
+    public partial class Beehive : System.Web.UI.Page
+    {
+        BeehiveGame game;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             updateView();
         }
 
         protected void updateView()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
 
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
@@ -71,6 +84,7 @@ namespace Beehive
             {
                 game = (BeehiveGame)Session["gamedata"];
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
             if (game.checkWinState())
             {
@@ -98,11 +112,14 @@ namespace Beehive
             }
 =======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             for (int i = 1; i <= 6; i++)
             {
                 ImageButton img = (ImageButton)this.FindControl("flower" + i);
                 if (game.getFlowerStack(i).Count() == 0)
                 {
+<<<<<<< HEAD
 <<<<<<< HEAD
                     img.ImageUrl = "~/resources/cards_png/blank.png";
                 }
@@ -110,11 +127,16 @@ namespace Beehive
                 {
                     img.ImageUrl = "~/resources/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
 =======
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                     img.ImageUrl = "~/cards_png/blank.png";
                 }
                 else
                 {
                     img.ImageUrl = "~/cards_png/" + game.getFlowerStack(i).Peek().getImageFile();
+<<<<<<< HEAD
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                 }
                 if (Session["selected"] == null)
@@ -124,6 +146,7 @@ namespace Beehive
             }
             if (game.getBeehive().Count() > 0)
             {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 beehiveStack.ImageUrl = "~/resources/cards_png/" + game.getBeehive().Peek().getImageFile();
             }
@@ -135,6 +158,8 @@ namespace Beehive
             {
                 workingStack.ImageUrl = "~/resources/cards_png/" + game.getWorkingPile().Peek().getImageFile();
 =======
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
                 beehiveStack.ImageUrl = "~/cards_png/" + game.getBeehive().Peek().getImageFile();
             }
             else
@@ -144,6 +169,9 @@ namespace Beehive
             if (game.getWorkingPile().Count() > 0)
             {
                 workingStack.ImageUrl = "~/cards_png/" + game.getWorkingPile().Peek().getImageFile();
+<<<<<<< HEAD
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
+=======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
             }
             else
@@ -160,6 +188,7 @@ namespace Beehive
                 hide2.Visible = false;
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (game.getDeck().Count() < 1)
             {
                 deck.ImageUrl = "~/resources/cards_png/blank.png";
@@ -171,6 +200,9 @@ namespace Beehive
 
             timeLabel.Text = "" + (DateTime.Now.ToFileTime() - game.startTime) / 10000000.0;
            // System.Diagnostics.Debug.WriteLine(game.printGameState());
+=======
+            System.Diagnostics.Debug.WriteLine(game.printGameState());
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
             System.Diagnostics.Debug.WriteLine(game.printGameState());
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
@@ -450,6 +482,7 @@ namespace Beehive
             Response.Redirect(Request.RawUrl);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         protected void nameSubmit_Click(object sender, EventArgs e)
         {
@@ -473,6 +506,8 @@ namespace Beehive
             }
         }
 
+=======
+>>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
 =======
 >>>>>>> 8f1b4a4b5b7063c62f23724d58ee6d04623ed156
     }

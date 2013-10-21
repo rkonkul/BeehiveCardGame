@@ -1,5 +1,0 @@
-C:\Users\Ryan\Documents\Visual Studio 2008\Projects\Beehive\Beehive\bin\Beehive.dll
-C:\Users\Ryan\Documents\Visual Studio 2008\Projects\Beehive\Beehive\bin\Beehive.pdb
-C:\Users\Ryan\Documents\Visual Studio 2008\Projects\Beehive\Beehive\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Ryan\Documents\Visual Studio 2008\Projects\Beehive\Beehive\obj\Debug\Beehive.dll
-C:\Users\Ryan\Documents\Visual Studio 2008\Projects\Beehive\Beehive\obj\Debug\Beehive.pdb
